@@ -13,3 +13,46 @@ fi
 # Customize to your needs...
 
 [ -s "/Users/dboroujerdi/.dnx/dnvm/dnvm.sh" ] && . "/Users/dboroujerdi/.dnx/dnvm/dnvm.sh" # Load dnvm
+
+
+# aliases
+
+## Aliases
+alias l='ls -CF'
+alias ls='ls -G'
+alias ll='ls -alF'
+alias lx='ls -lXB'         # sort by extension
+alias lk='ls -lSr'         # sort by size
+alias la='ls -Al'          # show hidden files
+alias lr='ls -lR'          # recursive ls
+alias lt='ls -ltr'         # sort by date
+alias lsize='ls --sort=size -lhr' # list by size
+
+## Tree aliases
+alias tl='tree -L 1'
+alias tree2='tree -L 2'
+alias tree3='tree -L 3'
+
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p -v'
+alias df='df -h'
+alias du='du -h -c'
+alias reload='source ~/.bashrc'
+alias biggest='BLOCKSIZE=1048576; du -x | sort -nr | head -10'
+
+# git
+alias gs='git status'
+alias gl='git lg'
+alias gc='git commit'
+alias gd='git diff'
+alias gt='git tree'
+
+# emacs
+alias e='emacsclient -nw -c'
+alias ed='emacs --daemon'
+
+## Maven
+alias mci='mvn clean install'
+alias mver='mvn -version'
+alias mc='mvn clean'
