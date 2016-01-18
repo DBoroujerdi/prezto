@@ -78,3 +78,14 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 # golang
 export GOPATH=$HOME/projects/go
 export PATH=$PATH:$GOPATH/bin
+
+
+# java
+case `uname` in
+  Darwin)
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    ;;
+  Linux)
+    # do nothing just now
+    ;;
+esac
