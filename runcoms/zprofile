@@ -89,3 +89,7 @@ case `uname` in
     # do nothing just now
     ;;
 esac
+
+
+# ruby
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
