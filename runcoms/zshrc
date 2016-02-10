@@ -56,3 +56,7 @@ alias ed='emacs --daemon'
 alias mci='mvn clean install'
 alias mver='mvn -version'
 alias mc='mvn clean'
+
+
+#rabbit
+alias rabbit_delete_queues='for queue in `rabbitmqadmin -f bash list queues name`; do rabbitmqadmin delete queue name="$queue"; done'
