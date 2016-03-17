@@ -56,3 +56,10 @@ alias ed='emacs --daemon'
 alias mci='mvn clean install'
 alias mver='mvn -version'
 alias mc='mvn clean'
+
+
+# Functions
+
+rabbit_on() {
+  docker run -d -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+}
