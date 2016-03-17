@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
 #
@@ -78,4 +78,18 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 # golang
 export GOPATH=$HOME/projects/go
 export PATH=$PATH:$GOPATH/bin
-export GOROOT=/usr/local/Cellar/go/1.5.2
+
+
+# java
+case `uname` in
+  Darwin)
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    ;;
+  Linux)
+    # do nothing just now
+    ;;
+esac
+
+
+# ruby
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
