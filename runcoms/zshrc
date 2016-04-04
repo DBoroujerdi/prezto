@@ -60,6 +60,10 @@ alias mc='mvn clean'
 
 # Functions
 
-# Aliases
-alias rabbit_on=docker run -d -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+## Aliases ##
+
 alias rabbit_delete_queues='for queue in `rabbitmqadmin -f bash list queues name`; do rabbitmqadmin delete queue name="$queue"; done'
+
+# Docker
+alias rabbit_on='docker run -d --name rabbit -p 5672:5672 -p 15672:15672 rabbitmq:3-management'
+alias kafka_on="docker run -d --name kafka -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST='10.1.74.46' --env ADVERTISED_PORT=9092 spotify/kafka"
