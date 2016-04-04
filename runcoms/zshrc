@@ -57,13 +57,45 @@ alias mci='mvn clean install'
 alias mver='mvn -version'
 alias mc='mvn clean'
 
-
-# Functions
-
-## Aliases ##
-
 alias rabbit_delete_queues='for queue in `rabbitmqadmin -f bash list queues name`; do rabbitmqadmin delete queue name="$queue"; done'
 
 # Docker
 alias rabbit_on='docker run -d --name rabbit -p 5672:5672 -p 15672:15672 rabbitmq:3-management'
 alias kafka_on="docker run -d --name kafka -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST='10.1.74.46' --env ADVERTISED_PORT=9092 spotify/kafka"
+
+
+# Functions
+kafka_local_clean() {
+  sudo rm -rf /tmp/zookeeper
+  sudo rm -rf /tmp/kafka-logs
+}
+
+kafka_local_on() {
+  # start zookeeper
+  ~/apps/kafka/bin/zookeeper-server-start.sh config/zookeeper.properties &
+  # start kafka
+  ~/apps/kafka/bin/kafka-server-start.sh config/server.properties &
+}
+
+kafka_local_off() {
+  # stop kafka
+  ~/apps/kafka/bin/kafka-server-stop.sh
+  # stop zookeeper
+  ~/bin/kafka/bin/zookeeper-server-start.sh config/zookeeper.properties
+}
+
+kafka_list_topics() {
+  ~/apps/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
+}
+
+kafka_consume_topic() {
+  ~/apps/kafka/bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic $1 --from-beginning
+}
+
+kafka_produce_topic() {
+  ~/apps/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic $1
+}
+
+kafka_create_topic() {
+  ~/apps/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic $1
+}
