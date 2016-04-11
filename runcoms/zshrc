@@ -88,6 +88,10 @@ kafka_list_topics() {
   ~/apps/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
 }
 
+kafka_delete_topic() {
+  ~/apps/kafka/bin/kafka-topics.sh --delete --topic $1 --zookeeper localhost:2181
+}
+
 kafka_consume_topic() {
   ~/apps/kafka/bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic $1 --from-beginning
 }
