@@ -52,7 +52,7 @@ alias gt='git tree'
 alias e='emacsclient -nw -c'
 alias ed='emacs --daemon'
 
-## Maven
+# Maven
 alias mci='mvn clean install'
 alias mver='mvn -version'
 alias mc='mvn clean'
