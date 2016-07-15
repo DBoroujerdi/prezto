@@ -6,6 +6,12 @@
 #
 
 #
+# Mac Swiss Artmy Knife
+# https://github.com/rgcr/m-cli
+#
+export PATH=$PATH:/usr/local/m-cli
+
+#
 # Browser
 #
 
