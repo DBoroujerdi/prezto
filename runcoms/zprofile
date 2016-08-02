@@ -106,7 +106,9 @@ export PATH="$PATH:$HOME/bin/"
 
 
 # node
-export PATH="$PATH:$HOME/apps/node/bin/"
+if [[ "$OSTYPE" == darwin* ]]; then
+  source $(brew --prefix nvm)/nvm.sh
+fi
 
 
 # docker
