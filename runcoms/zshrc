@@ -66,6 +66,54 @@ alias kafka_on="docker run -d --name kafka -p 2181:2181 -p 9092:9092 --env ADVER
 # Erlang
 alias emk_init='wget https://raw.githubusercontent.com/ninenines/erlang.mk/master/erlang.mk && make -f erlang.mk bootstrap'
 
+
+
+# golang
+export GOPATH=$HOME/projects/go
+export PATH=$PATH:$GOPATH/bin
+
+
+# java
+case `uname` in
+  Darwin)
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    ;;
+  Linux)
+    # do nothing just now
+    ;;
+esac
+
+
+# ruby
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+
+# general
+export PATH="$PATH:$HOME/bin/"
+
+
+# node
+if [[ "$OSTYPE" == darwin* ]]; then
+  source $(brew --prefix nvm)/nvm.sh
+fi
+
+
+# docker
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.99.100:2376
+export DOCKER_CERT_PATH=~/.docker/machine/machines/default
+export DOCKER_MACHINE_NAME=default
+
+
+# erlang
+export PATH="$PATH:$HOME/apps/erlang/lib/erl_interface-3.8/bin/"
+export PATH="$PATH:$HOME/bin/"
+export PATH="$PATH:$HOME/apps/erlang/bin/"
+
+
+# maven
+export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m"
+
 # Functions
 kafka_local_clean() {
   sudo rm -rf /tmp/zookeeper
